@@ -1,0 +1,14 @@
+{
+    "name": "wakasann/kuaishouv",
+    "description": "Get Kuaishou short Video from App share link",
+    "authors": [
+        {
+            "name": "wakasann",
+            "email": "wakasann@sohu.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "~6.0",
+        "analog/analog": "dev-master"
+    }
+}
