@@ -18,6 +18,7 @@ class Tool{
         try{
             if($firstIndex !== false){
                 $deleteBeforeContent = substr($htmlContent,$firstIndex+strlen($this->firstFilterStr));
+                var_dump( $deleteBeforeContent);
                 $commentIndex = strpos($deleteBeforeContent,$this->secondFilterStr);
                 if($commentIndex !== false){
                     $listContent = substr($deleteBeforeContent,0,$commentIndex-1);
