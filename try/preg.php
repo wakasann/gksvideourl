@@ -15,11 +15,13 @@ $afterContent = substr($content,$index2+strlen($findStr2));//去除掉 $findStr�
 $index3 = strpos($afterContent,$findStr3);
 var_dump($index3);
 $afterContent2 = substr($afterContent,0,$index3+strlen($findStr3)-1);
+$profileGallery = json_decode($afterContent2);
+var_dump($profileGallery->work->currentWork->playUrl);
 
-$log_file = date('ymdHis').'.log';
-Analog::handler (Analog\Handler\File::init ($log_file));
+//$log_file = date('ymdHis').'.log';
+//Analog::handler (Analog\Handler\File::init ($log_file));
 //Analog::log ($afterContent, Analog::DEBUG);
-Analog::log ($afterContent2, Analog::DEBUG);
+//Analog::log ($afterContent2, Analog::DEBUG);
 
 exit();
 
