@@ -1,12 +1,12 @@
 <?php
 $filePath = dirname(dirname(__FILE__));
-$content = file_get_contents($filePath.'/180621110753.log');
+$content = file_get_contents($filePath.'/180829101236.log');
 require $filePath.'/vendor/autoload.php';
 $findStr = 'window.VUE_MODEL_INIT_STATE.shortVideoComment={"work":';
 $commitFindStr = '"comment"';
 
-$findStr2 = 'window.VUE_MODEL_INIT_STATE.profileGallery=';
-$findStr3 = '"replyToUserName":""}};';
+$findStr2 = 'window.VUE_MODEL_INIT_STATE[\'profileGallery\']=';
+$findStr3 = '账号封禁"};';
 
 
 $index2 = strpos($content,$findStr2);
@@ -18,10 +18,10 @@ $afterContent2 = substr($afterContent,0,$index3+strlen($findStr3)-1);
 $profileGallery = json_decode($afterContent2);
 var_dump($profileGallery->work->currentWork->playUrl);
 
-//$log_file = date('ymdHis').'.log';
-//Analog::handler (Analog\Handler\File::init ($log_file));
-//Analog::log ($afterContent, Analog::DEBUG);
-//Analog::log ($afterContent2, Analog::DEBUG);
+// $log_file = date('ymdHis').'.log';
+// Analog::handler (Analog\Handler\File::init ($log_file));
+// Analog::log ($afterContent, Analog::DEBUG);
+// Analog::log ($afterContent2, Analog::DEBUG);
 
 exit();
 

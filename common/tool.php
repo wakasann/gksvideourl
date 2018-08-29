@@ -29,6 +29,16 @@ class Tool{
             'playUrl' => function($list){
                 return $list->work->currentWork->playUrl;
             }
+        ),
+        array(
+            'firstFilter' => 'window.VUE_MODEL_INIT_STATE[\'profileGallery\']=',
+            'secondFilter' => '账号封禁"};',
+            'secondEndIndex' => function($index){
+                return $index+strlen('账号封禁"};')-1;
+            },
+            'playUrl' => function($list){
+                return $list->work->currentWork->playUrl;
+            }
         )
     );
     }

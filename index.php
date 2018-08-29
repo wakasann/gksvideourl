@@ -34,7 +34,7 @@
 			require_once 'common/whttp.php';
 			$tool = new Tool();
 			$httpClient = new WHttp();
-			$rules = $tool->setSplitRules(1);
+			$rules = $tool->setSplitRules(2);
 			$response = $httpClient->getFound($shareUrl);
 			$stringBody = (string) $response;
 			$playUrl = $tool->getPlayUrl($stringBody);
