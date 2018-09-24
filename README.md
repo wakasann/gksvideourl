@@ -9,7 +9,7 @@
 
 如果是使用pc chrome进行请求，最后302 之后，又会再次输出307,尝试在pc chrome调试device toolbar的模式为 "IphoneX"时，显示的页面是手机浏览器的页面，而当前播放的视频是直接显示在video标签中
 
-！[效果1](doc_images/2018-09-24_184607.jpg)
+![效果1](doc_images/2018-09-24_184607.jpg)
 
 目前curl请求，添加了 `CURLOPT_USERAGENT`参数，返回结果使用 `preg_match` 截取
 
