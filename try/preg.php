@@ -1,6 +1,6 @@
 <?php
 $filePath = dirname(dirname(__FILE__));
-$content = file_get_contents($filePath.'/180829101236.log');
+$content = file_get_contents($filePath.'/180915221256.log');
 require $filePath.'/vendor/autoload.php';
 $findStr = 'window.VUE_MODEL_INIT_STATE.shortVideoComment={"work":';
 $commitFindStr = '"comment"';

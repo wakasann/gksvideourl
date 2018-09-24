@@ -54,7 +54,7 @@ class WHttp
                     $url['host'] = $last_url['host']; 
                 if (!$url['path']) 
                     $url['path'] = $last_url['path'];*/ 
-                $new_url = $url['scheme'] . '://' . $url['host'] . $url['path'] . ($url['query']?'?'.$url['query']:''); 
+                $new_url = (isset($url['scheme'])?$url['scheme']:'http') . '://' . $url['host'] . $url['path'] . ($url['query']?'?'.$url['query']:''); 
                 curl_setopt($ch, CURLOPT_URL, $new_url); 
             //    debug('Redirecting to', $new_url); 
 
@@ -108,8 +108,8 @@ class WHttp
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); // 跳过证书检查
         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);  // 从证书中检查SSL加密算法是否存在
         curl_setopt($curl, CURLOPT_AUTOREFERER, true);
-        //curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true); //302 Found
-        $this->curl_redir_exec($curl);
+        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true); //302 Found
+        //$this->curl_redir_exec($curl);
         $result = curl_exec($curl);
         //echo curl_getinfo($curl, CURLINFO_HEADER_OUT); //官方文档描述是“发送请求的字符串”，其实就是请求的header。这个就是直接查看请求header，因为上面允许查看
         if (curl_errno($curl)) {
