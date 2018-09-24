@@ -83,4 +83,25 @@ class Tool{
         return "";
     }
 
+    public function getPlayUrlByPregMatch($htmlContent){
+        $videoRegex = "/<video class=\"video\".*?>.*?<\/video>/ism"; 
+        $videoSrcRegex = "/<video (.*?) src=\"(.+?)\".*?>/ism"; 
+        if(preg_match($videoRegex, $htmlContent, $matcheVideo)){
+           if(!isset($matches[0])){
+                preg_match($videoSrcRegex, $matcheVideo[0], $videoSrc);
+                $count = count($videoSrc)-1;
+                $videoValue = $videoSrc[$count];
+                if(!empty($videoValue)){
+                    return trim($videoValue);
+                }else{
+                    return '';
+                }
+           }else{
+            return '';
+           }
+        }else{  
+           return '';  
+        }
+    }
+
 }

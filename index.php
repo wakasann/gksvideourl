@@ -14,7 +14,7 @@
 
   <nav class="navbar navbar-light bg-light">
     <span class="navbar-text">
-     获取快手分享之后的短链接MP4的链接
+     获取快手分享之后的短链接MP4的链接,<a href="https://github.com/wakasann/gksvideourl" target="_blank">在Github中的地址</a>
     </span>
   </nav>
 
@@ -37,7 +37,7 @@
 			$rules = $tool->setSplitRules(2);
 			$response = $httpClient->getFound($shareUrl);
 			$stringBody = (string) $response;
-			$playUrl = $tool->getPlayUrl($stringBody);
+			$playUrl = $tool->getPlayUrlByPregMatch($stringBody);
 			if(strpos($playUrl, 'http') === 0){
 				echo "<br/>";
 				echo '<a href="'.$playUrl.'" target="_blank" title="视频链接">'.$playUrl.'</a>';
@@ -61,7 +61,7 @@
 		echo "胸弟，你还没有填地址就送出啦，这很不友好呀！";
 	}?>
 
-	<div><a href="https://github.com/wakasann/gksvideourl" target="_blank">在Github中的地址</a></div>
+	<div></div>
 </div>
 
 

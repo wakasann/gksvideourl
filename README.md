@@ -5,6 +5,21 @@
 
 -----
 
+#### 20180924
+
+如果是使用pc chrome进行请求，最后302 之后，又会再次输出307,尝试在pc chrome调试device toolbar的模式为 "IphoneX"时，显示的页面是手机浏览器的页面，而当前播放的视频是直接显示在video标签中
+
+！[效果1](doc_images/2018-09-24_184607.jpg)
+
+目前curl请求，添加了 `CURLOPT_USERAGENT`参数，返回结果使用 `preg_match` 截取
+
+
+
+由于本人正则表达式不熟，参考了以下2个文章，最终将html中的`video`标签中的src路径提取出来了
+
+1. [php正则匹配html中带class的div并选取其中内容的方法](https://www.jb51.net/article/59812.htm) -- 参考提取 video标签
+2. [php正则提取html图片(img)src地址与任意属性的方法](https://www.jb51.net/article/104913.htm) -- 参考提取 video中的 src
+
 #### 20180821
 
 自己将代码放在自己的博客中 [解析快手链接](https://www.wakasann.xyz/kuaishouv/)

@@ -108,9 +108,10 @@ class WHttp
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); // 跳过证书检查
         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);  // 从证书中检查SSL加密算法是否存在
         curl_setopt($curl, CURLOPT_AUTOREFERER, true);
-        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true); //302 Found
-        //$this->curl_redir_exec($curl);
-        $result = curl_exec($curl);
+        curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1');
+        //curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true); //302 Found
+        $result = $this->curl_redir_exec($curl);
+        //$result = curl_exec($curl);
         //echo curl_getinfo($curl, CURLINFO_HEADER_OUT); //官方文档描述是“发送请求的字符串”，其实就是请求的header。这个就是直接查看请求header，因为上面允许查看
         if (curl_errno($curl)) {
             echo 'Errno'.curl_error($curl);//捕抓异常
