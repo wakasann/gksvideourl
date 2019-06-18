@@ -84,8 +84,12 @@ class Tool{
     }
 
     public function getPlayUrlByPregMatch($htmlContent){
-        $videoRegex = "/<video class=\"video\".*?>.*?<\/video>/ism"; 
+        $videoRegex = "/<video .*? id=\"video-player\".*?>.*?<\/video>/ism"; 
         $videoSrcRegex = "/<video (.*?) src=\"(.+?)\".*?>/ism"; 
+        // preg_match($videoSrcRegex,$htmlContent, $matcheVideo2);
+        // echo "<pre>";
+        // print_r($matcheVideo2);
+        // echo "</pre>";
         if(preg_match($videoRegex, $htmlContent, $matcheVideo)){
            if(!isset($matches[0])){
                 preg_match($videoSrcRegex, $matcheVideo[0], $videoSrc);

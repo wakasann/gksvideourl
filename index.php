@@ -28,8 +28,12 @@
 	</form>
 	<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST) && !empty($_POST['share_url'])){
 		$shareUrl = $_POST['share_url'];
-		$index = strpos($shareUrl, 'http://www.gifshow.com/s/');
-		if($index === 0){
+		$share_pattern = '/https{0,1}:\/\/[A-Za-z0-9_.\/]+(\s?)/';
+		preg_match($share_pattern,$shareUrl,$matches);
+		
+		//$index = strpos($shareUrl, 'http://www.gifshow.com/s/');
+		if(is_array($matches) && count($matches) >0 && strpos($matches[0], 'http') === 0){
+			$shareUrl = $matches[0];
 			require_once 'common/tool.php';
 			require_once 'common/whttp.php';
 			$tool = new Tool();
@@ -54,7 +58,7 @@
 				echo '抱歉，解析失败T_T';
 			}
 		}else{
-			echo '不是快手分享链接，解析失败咯';
+			echo '可能不是快手分享链接，解析失败咯';
 		}
 
 	}else if($_SERVER['REQUEST_METHOD'] == 'POST' && empty($_POST)){
