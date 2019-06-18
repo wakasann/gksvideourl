@@ -22,7 +22,7 @@
 
 #### 20180821
 
-自己将代码放在自己的博客中 [解析快手链接](https://www.wakasann.xyz/kuaishouv/)
+自己将代码放在自己的博客中 [解析快手链接](https://www.wakasann.com/kuaishouv/)
 
 放上去之后，遇到 `Warning: curl_setopt() [function.curl-setopt]: CURLOPT_FOLLOWLOCATION cannot be activated when in safe_mode or an open_basedir is set`的警告，并进行解决
 
