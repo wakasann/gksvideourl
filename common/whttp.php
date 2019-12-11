@@ -10,7 +10,7 @@
  */
 class WHttp
 {
-
+    private $host = 'www.gifshow.com';
     //safe 模式不能curl的函数
  
     function curl_redir_exec($ch,$debug="") 
@@ -54,6 +54,11 @@ class WHttp
                     $url['host'] = $last_url['host']; 
                 if (!$url['path']) 
                     $url['path'] = $last_url['path'];*/ 
+                if(!isset($url['host'])){
+                    $url['host'] = $this->host;
+                }else if(isset($url['host']) && !empty($url['host'])){
+                    $this->host = $url['host'];
+                }
                 $new_url = (isset($url['scheme'])?$url['scheme']:'http') . '://' . $url['host'] . $url['path'] . ($url['query']?'?'.$url['query']:''); 
                 curl_setopt($ch, CURLOPT_URL, $new_url); 
             //    debug('Redirecting to', $new_url); 
